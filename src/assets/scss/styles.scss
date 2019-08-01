@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,600&display=swap&subset=cyrillic');
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    color: #ffecec;
+    background-color: #09030f;
+    background: -moz-linear-gradient(45deg,  #09030f 0%, #312647 100%);
+    background: -webkit-linear-gradient(45deg,  #09030f 0%,#312647 100%);
+    background: linear-gradient(45deg,  #09030f 0%,#312647 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#09030f', endColorstr='#312647',GradientType=1 );
+}
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    outline: 0;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    border: 0;
+}
+b {
+    font-weight: 600;
+}
+.sidebar {
+    display: none;
+}
+.header {
+    display: flex;
+    background-color: rgba(217, 217, 217, .2);
+    width: 100%;
+    height: 50px;
+    align-items: center;
+
+    &__hamburger {
+        background-image: url('../img/hamburger.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 15px;
+        width: 21px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        div {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            font-size: 18px;
+        }
+    }
+    &__balance {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        margin-right: 10px;
+        span,
+        b {
+            font-size: 9px;
+            margin: 2px 0;
+        }
+        .sum {
+            font-weight: 600;
+            font-size: 16px;
+        }
+    }
+}
+
+.calc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    input {
+        pointer-events: none;
+        background-color: transparent;
+        display: flex;
+        width: 100%;
+        color: #cabbbb;
+        font-size: 18px;
+        padding: 10px;
+        text-align: center;
+        &::placeholder {
+            color: #cabbbb;
+        }
+    }
+    table {
+        font-size: 18px;
+        font-weight: 600;
+        td {
+            min-width: 20px;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin: 10px;
+            background-color: rgba(255, 255, 255, .8);
+            text-align: center;
+            color: #000;
+            border: 3px solid #09030f;
+            &:active {
+                background-color: rgba(255, 255, 255, .5);
+            }
+        }
+    }
+}
