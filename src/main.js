@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
+import reactiveStorage from "vue-reactive-storage";
+Vue.use(reactiveStorage, {
+  "accounts": []
+});
 
 Vue.config.productionTip = false
 

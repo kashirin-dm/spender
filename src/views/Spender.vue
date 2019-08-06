@@ -1,30 +1,46 @@
 <template>
 <div class="spender">
-  <nav class="sidebar">
-    <ul>
-      <li>Расходы</li>
-      <li>Доходы</li>
-      <li>Долги</li>
-      <li>Займы</li>
-      <li>Счета</li>
-      <li>Аналитика</li>
-    </ul>
-  </nav>
-
-  <section class="header">
-    <div class="header__hamburger"></div>
+  <section class="header" :class="{'header__revenue': revenueMode}">
+    <div class="header__hamburger" @click="$emit('sidebarToggle')"></div>
     <div class="header__row">
-        <div>Расходы</div>
+        <div v-show="!revenueMode" class="view-name" @click="revenueMode = true">Расходы</div>
+        <div v-show="revenueMode" class="view-name" @click="revenueMode = false">Доходы</div>
+
+        <div class="account" @click="showAccaunts = !showAccaunts">
+          <div class="account__type">
+            <span>Каспи</span>
+          </div>
+          <div class="account__type-dropdown" :class="{'account__type-dropdown--show': showAccaunts}">
+            <ul>
+              <li>
+                <span>Forte</span>
+                <span>33 000 тг.</span>
+              </li>
+              <li>
+                <span>Наличные</span>
+                <span>33 000 тг.</span>
+              </li>
+              <li>
+                <span>Home</span>
+                <span>33 000 тг.</span>
+              </li>
+            </ul>
+          </div>
+          <span class="balance">456 223 тг.</span>
+        </div>
+
         <div class="header__balance">
           <span>Общий остаток:</span>
           <span class="sum">2 458 000 тг.</span>
           <span>Хватит до <b>2 октября</b></span>
         </div>
+
     </div>
   </section>
   <section class="calc">
     <span class="calc__field" v-show="calcField !== 0">{{ calcField }}</span>
-    <span class="calc__field" v-show="calcField === 0">Введите расход</span>
+    <span class="calc__field" v-show="calcField === 0 && !revenueMode">Введите расход</span>
+    <span class="calc__field" v-show="calcField === 0 && revenueMode">Введите доход</span>
     <table>
       <tr>
         <td @click="calcAdd">+</td>
@@ -173,15 +189,31 @@
         </div>
       </div>
     </div>
+    <header>
+      <span>Потрачено вчера: 670 тг.</span>
+    </header>
+    <div class="journal__items">
+      <div class="journal__item-row">
+        <div class="icon ic-apple"></div>
+        <div class="details">
+          <div class="item">
+            <span>Продукты</span>
+            <span>Наличные</span>
+          </div>
+          <div class="sum-date">
+            <span>1500 тг.</span>
+            <span>01.08.19</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="journal__before-btn">Ранее</button>
 
   </section>
 </div>
 </template>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Spender',
   data() {
@@ -189,7 +221,9 @@ export default {
       calcField: 0,
       calcPrevious: null,
       calcOperator: null,
-      calcOperatorClicked: false
+      calcOperatorClicked: false,
+      showAccaunts: false,
+      revenueMode: false
     }
   },
   methods: {
