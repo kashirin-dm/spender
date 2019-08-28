@@ -15,7 +15,7 @@ export default new Router({
     },
     {
       path: '/accounts',
-      name: 'accounts',
+      name: 'Accounts',
       component: () => import('./views/Accounts.vue')
     }
   ]

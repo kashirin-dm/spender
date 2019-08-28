@@ -1,3 +1,1 @@
-module.exports = {
-  lintOnSave: undefined
-}
+module.exports = {}

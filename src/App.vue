@@ -1,8 +1,11 @@
 <template>
-<div>
-  <app-sidebar :sidebarShow="sidebarShow" @sidebarToggle="sidebarToggle"/>
-  <router-view @sidebarToggle="sidebarToggle"/>
-</div>
+  <div>
+    <app-sidebar 
+      :sidebar-show="sidebarShow"
+      @sidebarToggle="sidebarToggle"
+    />
+    <router-view @sidebarToggle="sidebarToggle" />
+  </div>
 </template>
 <script>
 import '@/assets/scss/styles.scss'

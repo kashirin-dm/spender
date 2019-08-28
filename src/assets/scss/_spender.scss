@@ -1,0 +1,154 @@
+.calc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    &__field {
+        width: 100%;
+        color: #cabbbb;
+        font-size: 18px;
+        padding: 10px;
+        text-align: center;
+    }
+    table {
+        font-size: 18px;
+        font-weight: 600;
+        td {
+            min-width: 20px;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin: 10px;
+            background-color: rgba(255, 255, 255, .8);
+            text-align: center;
+            color: #000;
+            border: 3px solid #09030f;
+            &:active {
+                background-color: rgba(255, 255, 255, .4);
+            }
+            &:first-of-type {
+                background-color: rgba(255, 255, 255, .6);
+            }
+        }
+        .c {background-color: rgba(255, 255, 255, .6);}
+    }
+}
+
+.categories {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    > div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 10px;
+        width: 60px;
+        text-align: center;
+        padding: 2px;
+        &::before {
+            content: "";
+            position: absolute;
+            transition: opacity .1s ease-out;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.3);
+            background: -moz-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0.3)), color-stop(100%, rgba(255,255,255,0.1)));
+            background: -webkit-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+            background: -o-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+            background: -ms-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+        }
+        &:active {
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        > div {
+            display: flex;
+            width: 50px;
+            height: 50px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-bottom: 5px;
+        }
+        > span {
+            font-size: 12px;
+        }
+    }
+}
+
+.journal {
+    width: 100%;
+    header {
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, .4);
+    }
+    &__items {
+        width: 100%;
+    }
+    &__item-row {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, .1);
+        border-bottom: 1px solid #3c2e49;
+        .icon {
+            width: 30px;
+            height: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+        }
+        .details {
+            width: calc(100% - 60px);
+            display: flex;
+            justify-content: space-between;
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            span {
+                font-size: 12px;
+                margin: 2px 0;
+                &:first-of-type {
+                    font-size: 18px;
+                }
+            }
+        }
+        .sum-date {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            margin: 2px 0;
+            font-size: 12px;
+            span {
+                &:first-of-type {
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    &__before-btn {
+        width: 100%;
+        font-size: 16px;
+        padding: 15px 10px;
+        background-color: rgba(255, 255, 255, .6);
+        &:active {
+            background-color: rgba(255, 255, 255, .4);
+        }
+    }
+}
